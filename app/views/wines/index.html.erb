@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +13,14 @@
   <tbody>
     <% @wines.each do |wine| %>
       <tr>
+        <td> <%= wine.name %> </td>
+        <td>
+        <ul>
+        <% wine.assemblies.each do |assembly| %>
+        <li> The wine Has (<%= assembly.percentage %>%) from strain: <%= assembly.strain.name %></li>
+        <% end %>
+        </ul>
+        </td>
         <td><%= link_to 'Show', wine %></td>
         <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
         <td><%= link_to 'Destroy', wine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
