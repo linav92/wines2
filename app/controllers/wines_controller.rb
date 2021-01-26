@@ -14,7 +14,7 @@ class WinesController < ApplicationController
   # GET /wines/new
   def new
     @wine = Wine.new
-    @strains = Strain.order("name ASC").pluck :name, :id
+    @strains = Strain.pluck :name, :id
     @wine.assemblies.build
   end
 

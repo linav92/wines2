@@ -16,8 +16,9 @@
         <td> <%= wine.name %> </td>
         <td>
         <ul>
-        <% wine.assemblies.each do |assembly| %>
-        <li> The wine Has (<%= assembly.percentage %>%) from strain: <%= assembly.strain.name %></li>
+        <% assemblies = wine.assemblies.sort_by{|e| -e.strain.name} %>
+        <% assemblies.each do |assembly| %>
+        <li> The wine has (<%= assembly.percentage %>%) from strain <%= assembly.strain.name %></li>
         <% end %>
         </ul>
         </td>
