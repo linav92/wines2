@@ -1,8 +1,8 @@
-<div class="field">
+<div class="form-group">
     <%= f.label :strain_id, "Add a strain" %>
-    <%= f.select :strain_id, options_for_select(@strains) %>
+    <%= f.select :strain_id, options_for_select(@strains), {},{class: 'form-control'} %>
 </div>
-<div class="field">
+<div class="form-group">
     <%= f.label :percentage, 'Percentage' %>
-    <%= f.number_field :percentage %>
+    <%= f.number_field :percentage,class: 'form-control' %>
 </div>

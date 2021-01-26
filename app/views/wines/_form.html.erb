@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="form-group">
     <%= form.label :name, 'Wine' %>
-    <%= form.text_field :name  %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
   
   <div class="field" id="assemblies">
     <%= form.fields_for :assemblies do |ff| %>
-      <%= render 'assembly_fields', f: ff %>
+      <%= render 'assembly_fields', :f => ff %>
     <% end %>
   </div>
 
@@ -26,6 +26,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Create", class: 'btn btn-info' %>
   </div>
 <% end %>

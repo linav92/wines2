@@ -4,8 +4,9 @@ class WinesController < ApplicationController
   # GET /wines or /wines.json
   def index
     @wines = Wine.all
-    @strains = Strain.order("name ASC")
+ 
   end
+
   # GET /wines/1 or /wines/1.json
   def show
   end
@@ -13,7 +14,7 @@ class WinesController < ApplicationController
   # GET /wines/new
   def new
     @wine = Wine.new
-    
+    @strains = Strain.order("name ASC").pluck :name, :id
     @wine.assemblies.build
   end
 
