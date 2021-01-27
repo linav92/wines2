@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% if current_user %>
 <h1>Wines</h1>
 
 <table class="table table-striped">
@@ -31,7 +31,7 @@
 </table>
 
 <br>
-
+<% end %>
 <% if current_user.admin? %>
 <%= link_to 'New Wine', new_wine_path %> | <%= link_to 'New strain', new_strain_path %>
 <% end %>

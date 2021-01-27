@@ -1,0 +1,24 @@
+<section id="header">
+      <div class="inner">
+					<span class="fas fa-wine-glass-alt"></span>
+					<h1>La Strada del Vino.</h1>
+				</div>
+        <nav class="navbar navbar-expand-sm  sticky-top navbar-dark py-4 bg-transparent">
+    <div class="mx-auto d-sm-flex d-block flex-sm-nowrap">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarsExample11">
+            <ul class="navbar-nav">
+              <% if current_user %>
+                <li class="nav-item"> <a class="nav-link"  <%= link_to 'My Profile', edit_user_registration_path %></a></li>
+                <li class="nav-item"> <a class="nav-link"  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %></a></li>
+              <% else %>
+                <li class="nav-item"> <a class="nav-link"  <%= link_to 'Log in', new_user_session_path %></a></li>
+                <li class="nav-item"> <a class="nav-link"  <%= link_to 'Sign in', new_user_registration_path %></a></li>
+              <% end %>
+            </ul>
+        </div>
+    </div>
+</nav>
+    </section>

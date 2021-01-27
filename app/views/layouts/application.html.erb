@@ -16,31 +16,32 @@
   </head>
 
   <body>
-    <section id="header">
-      <div class="inner">
-					<span class="fas fa-wine-glass-alt"></span>
-					<h1>La Strada del Vino.</h1>
-				</div>
-    </section>
-
+    <%= render 'shared/header' %>
+     <% if current_user %>
+        <div class="content-container">
+        <% if notice %>
+        <div class="alert alert-dismissible alert-success ">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <h4>Información</h4>
+          <p><%= notice %></p>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <h4>Atención</h4>
+          <p><%= alert %></p>
+        </div>
+      <% end %>
+    <% end %>
+    
     <section id="one" class="main style1">
       <div class="container">
         <%= yield %>
       </div>
+		</section>
     
-			</section>
-    
-    
-    <section id="footer">
-        <div class="container text-white">
-        <div class=" text-center"> 
-            <ul>
-                <li class="d-inline"><i class="fas fa-wine-glass-alt  mr-4 text-white"></i></li>
-                <h3>La Strada del Vino.</h3>
-            </ul> 
-                <p class="mt-4">© 2020 Copyright | Lina Sofía Vallejo Betancourth</p>  
-        </div>      
-    </section>
+  <%= render 'shared/footer' %> 
   </body>
   <%= javascript_pack_tag 'application' %>
 </html>
