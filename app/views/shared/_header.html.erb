@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse text-center" id="navbarsExample11">
             <ul class="navbar-nav">
               <% if current_user %>
-                <li class="nav-item"> <a class="nav-link"  <%= link_to 'My Profile', edit_user_registration_path %></a></li>
+                <li class="nav-item"> <a class="nav-link"  <%= link_to 'Home', root_path %></a></li>
                 <li class="nav-item"> <a class="nav-link"  <%= link_to 'Sign out', destroy_user_session_path, method: :delete %></a></li>
               <% else %>
                 <li class="nav-item"> <a class="nav-link"  <%= link_to 'Log in', new_user_session_path %></a></li>
@@ -20,5 +20,6 @@
             </ul>
         </div>
     </div>
+    
 </nav>
-    </section>
+</section>

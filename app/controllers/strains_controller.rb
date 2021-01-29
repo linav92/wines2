@@ -1,4 +1,5 @@
 class StrainsController < ApplicationController
+  before_action :authorize_admin!
   before_action :set_strain, only: %i[ show edit update destroy ]
 
   # GET /strains or /strains.json
@@ -64,6 +65,6 @@ class StrainsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def strain_params
-      params.require(:strain).permit(:name)
+      params.require(:strain).permit(:id, :name)
     end
 end
