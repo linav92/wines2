@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_27_203114) do
+ActiveRecord::Schema.define(version: 2021_02_01_214351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2021_01_27_203114) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["strain_id"], name: "index_assemblies_on_strain_id"
     t.index ["wine_id"], name: "index_assemblies_on_wine_id"
+  end
+
+  create_table "critics", force: :cascade do |t|
+    t.bigint "wine_id", null: false
+    t.bigint "winemaker_id", null: false
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["wine_id"], name: "index_critics_on_wine_id"
+    t.index ["winemaker_id"], name: "index_critics_on_winemaker_id"
   end
 
   create_table "strains", force: :cascade do |t|
@@ -44,6 +54,18 @@ ActiveRecord::Schema.define(version: 2021_01_27_203114) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "winemakers", force: :cascade do |t|
+    t.string "name"
+    t.integer "old"
+    t.string "nationality"
+    t.string "work"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_editor"
+    t.boolean "is_writer"
+    t.boolean "is_reviewer"
+  end
+
   create_table "wines", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -52,4 +74,6 @@ ActiveRecord::Schema.define(version: 2021_01_27_203114) do
 
   add_foreign_key "assemblies", "strains"
   add_foreign_key "assemblies", "wines"
+  add_foreign_key "critics", "winemakers"
+  add_foreign_key "critics", "wines"
 end

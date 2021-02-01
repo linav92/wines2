@@ -22,7 +22,8 @@ class WinesController < ApplicationController
   # GET /wines/1/edit
   def edit
     @strains = Strain.find(params[:id])
-    
+    @winemakers = Winemaker.all
+    @wine.critics.build unless @wine.critics.present?
   end
 
   # POST /wines or /wines.json
@@ -70,6 +71,6 @@ class WinesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wine_params
-      params.require(:wine).permit(:name, assemblies_attributes: [:percentage, :strain_id])
+      params.require(:wine).permit(:name, assemblies_attributes: [:id, :percentage, :strain_id], critics_attributes: [:id, :score, :winemaker_id])
     end
 end

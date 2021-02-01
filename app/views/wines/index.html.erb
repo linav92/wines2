@@ -6,6 +6,8 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th> Assembly</th>
+      <th>Critics</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,6 +23,13 @@
         <li> The wine has (<%= assembly.percentage %>%) from strain <%= assembly.strain.name %></li>
         <% end %>
         </ul>
+        </td>
+        <td>
+        <ul>
+        </ul>
+        <% wine.critics.each do |critic| %>
+          <li><%= critic.winemaker.name %>'s score is <%= critic.score %></li>
+        <% end %>
         </td>
         <td><%= link_to 'Show', wine %></td>
         <td><%= link_to 'Edit', edit_wine_path(wine) %></td>

@@ -1,0 +1,40 @@
+<%= form_with(model: wine, local: true) do |form| %>
+  <% if wine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wine.errors.count, "error") %> prohibited this wine from being saved:</h2>
+
+      <ul>
+        <% wine.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :name, 'Wine' %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+  
+  <div class="field" id="assemblies">
+    <%= form.fields_for :assemblies do |ff| %>
+      <%= render 'assembly_fields', :f => ff %>
+    <% end %>
+  </div>
+
+  <div class="links">
+    <%= link_to_add_association 'Add another strain', form, :assemblies %>
+  </div>
+
+  <div class="field" id="critics">
+  <%= form.fields_for :critics do |ff| %>
+    <%= render 'critic_fields', :f => ff %>
+  <% end %>
+  </div>
+  <div class="links">
+    <%= link_to_add_association 'Add another critics', form, :critics %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Create", class: 'btn btn-info' %>
+  </div>
+<% end %>
