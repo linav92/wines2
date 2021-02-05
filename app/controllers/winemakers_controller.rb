@@ -3,7 +3,7 @@ class WinemakersController < ApplicationController
 
   # GET /winemakers or /winemakers.json
   def index
-    @winemakers = Winemaker.all
+    @winemakers = Winemaker.all.order("old ASC")
   end
 
   # GET /winemakers/1 or /winemakers/1.json

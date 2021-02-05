@@ -27,7 +27,8 @@
         <td>
         <ul>
         </ul>
-        <% wine.critics.each do |critic| %>
+        <% critics = wine.critics.sort_by{|e| e.winemaker.old} %>
+        <% critics.each do |critic| %>
           <li><%= critic.winemaker.name %>'s score is <%= critic.score %></li>
         <% end %>
         </td>
