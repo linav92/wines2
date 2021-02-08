@@ -31,9 +31,17 @@
     <%= form.text_field :work %>
   </div>
 
- 
-   
-
+  <div class="field form-group">
+    <div class="checkbox-inline">
+      <%= form.check_box :is_editor %>
+      <%= form.label :is_editor, "Editor" %><br>
+      <%= form.check_box :is_writer %>
+      <%= form.label :is_writer, "Writer" %><br>
+      <%= form.check_box :is_reviewer %>
+      <%= form.label :is_reviewer, "Reviewer" %><br>
+    </div>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -9,6 +9,9 @@
       <th>Year Old</th>
       <th>Nationality</th>
       <th>Work</th>
+      <th>Editor</th>
+      <th>Writer</th>
+      <th>Reviewer</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +23,9 @@
         <td> <%= winemaker.old %> </td>
         <td><%= winemaker.nationality %></td>
         <td><%= winemaker.work %></td>
+        <td> <%= winemaker.is_editor? %></td>
+        <td> <%= winemaker.is_writer? %></td>
+        <td> <%= winemaker.is_reviewer? %></td>
         <td><%= link_to 'Show', winemaker %></td>
         <td><%= link_to 'Edit', edit_winemaker_path(winemaker) %></td>
         <td><%= link_to 'Destroy', winemaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
