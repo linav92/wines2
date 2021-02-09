@@ -1,4 +1,24 @@
 <p id="notice"><%= notice %></p>
+    <p>
+        <strong>Name:</strong>
+        <%= @wine.name %>
+    </p>
+    
+    
+    <table>
+  <thead>
+    <strong>Assembly:</strong>
+  </thead>
+
+  <tbody>
+    <% @wine.assemblies.each do |a| %>
+    <tr>
+      <td><%= " #{a.strain.name} ""#{a.percentage}% "%></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
 
 <%= link_to 'Edit', edit_wine_path(@wine) %> |
 <%= link_to 'Back', wines_path %>
